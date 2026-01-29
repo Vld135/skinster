@@ -1,5 +1,7 @@
 # Уведомления в Telegram
 
+<figure><img src="../../.gitbook/assets/workflow-notification.png" alt=""><figcaption></figcaption></figure>
+
 Нода **Telegram уведомление** отправляет сообщение в Telegram в любой точке workflow. Используйте её для уведомлений о завершении, ошибках или промежуточных результатах.
 
 {% hint style="info" %}

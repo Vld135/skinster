@@ -5,6 +5,8 @@ icon: diagram-project
 
 # Workflows
 
+<figure><img src="../../.gitbook/assets/workflow-overview.png" alt=""><figcaption></figcaption></figure>
+
 {% hint style="info" %}
 Для использования Workflows необходимо включить **Experimental features** в настройках приложения.
 {% endhint %}
