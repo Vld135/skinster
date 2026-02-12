@@ -2,8 +2,8 @@
 
 ## Getting Started
 
-* [Начало работы](README.md)
 * [Системные требования](getting-started/publish-your-docs.md)
+* [Начало работы](README.md)
 
 ## Функционал
 
@@ -28,3 +28,7 @@
 ## Подписки и оплата
 
 * [Подписки и оплата](podpiski-i-oplata.md)
+
+## Помощь
+
+* [Решение популярных проблем](reshenie-populyarnyh-problem.md)
