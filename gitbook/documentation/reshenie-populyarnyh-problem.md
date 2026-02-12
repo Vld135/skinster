@@ -24,11 +24,7 @@ layout:
 
 Если фоновый режим фарма не запускается, необходимо обновить конфигурацию RDP Wrapper.
 
-**Скачайте утилиту:**
-
-{% file src=".gitbook/assets/rdpwrap-offset-finder.exe" %}
-rdpwrap-offset-finder.exe
-{% endfile %}
+**Скачайте утилиту:** [rdpwrap-offset-finder.exe](https://github.com/Vld135/skinster/releases/download/rdpwrap-offset-finder-v1.0/rdpwrap-offset-finder.exe)
 
 **Инструкция:**
 
