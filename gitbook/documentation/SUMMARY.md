@@ -7,6 +7,9 @@
 
 ## Функционал
 
+* [Аккаунты и прокси](funkcional/akkaunty-i-proksi/README.md)
+  * [Добавление аккаунтов](funkcional/akkaunty-i-proksi/dobavlenie-akkauntov.md)
+  * [Прокси](funkcional/akkaunty-i-proksi/proksi.md)
 * [Overview](funkcional/editor.md)
 * [Moving](funkcional/markdown.md)
 * [In-game shop](funkcional/images-and-media.md)
