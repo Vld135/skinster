@@ -7,7 +7,7 @@ icon: square-dollar
 
 ## Настройка
 
-<figure><img src="../../.gitbook/assets/settings_farm (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/nE0PPdVctoaVHx1cyaAm" alt=""><figcaption></figcaption></figure>
 
 1. Первым делом переходим в раздел Settings (Настройки)
 2. Необходимо указать путь к папке где установлен Steam (там должен находится фаил steam.exe)\

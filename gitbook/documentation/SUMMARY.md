@@ -2,8 +2,8 @@
 
 ## Getting Started
 
-* [Системные требования](getting-started/publish-your-docs.md)
-* [Начало работы](README.md)
+* [Системные требования](README.md)
+* [Начало работы](<README (1).md>)
 
 ## Функционал
 

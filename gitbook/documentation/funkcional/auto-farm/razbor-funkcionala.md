@@ -1,6 +1,6 @@
 # Разбор функционала
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/z5KPHVk7ihqV64qqYxSv" alt=""><figcaption></figcaption></figure>
 
 1. В левой части отображается список всех твоих аккаунтов. А так же информация уровень, опыт, звание а так же собран ли дроп на этой неделе
 2. Custom PC Name - При получении телеграмм уведомлений пишется с какого устройство оно отправлено (по умолчанию используется имя вашего устройства)\

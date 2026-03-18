@@ -1,6 +1,6 @@
 # Уведомление и управление через Telegram
 
-<figure><img src="../../.gitbook/assets/settings_farm (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/nE0PPdVctoaVHx1cyaAm" alt=""><figcaption></figcaption></figure>
 
 Для получения уведомлений во время фарма необходимо создать своего бота в телеграмм, для этого
 

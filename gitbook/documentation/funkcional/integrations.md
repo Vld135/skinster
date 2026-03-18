@@ -1,20 +1,6 @@
 ---
 description: Данный раздел находится еще в разработке, но некоторые функции уже доступны
 icon: shop
-layout:
-  width: default
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
 ---
 
 # Steam Market
