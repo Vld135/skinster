@@ -70,6 +70,52 @@ layout:
 3. Включите её обратно
 4. Повторите эти шаги для каждого пользователя системы (`skinster_bot_1`, `skinster_bot_2` и т.д.) — пароль `Test@1234`
 
+## Проблема со сбором дропа
+
+Если вы используете прокси, подключённые к папке, потенциально проблема может быть в них. Попробуйте отключить использование прокси для сбора дропа.
+
+**Решение:**
+
+1. Перейдите на страницу **Accounts** в раздел **Прокси**
+2. Нажмите кнопку настроек
+3. Отключите использование прокси для сбора дропа
+
+## Боты не могут начать поиск матча (ошибка SRT)
+
+<figure><img src=".gitbook/assets/srt-error.png" alt=""><figcaption></figcaption></figure>
+
+Возможно, во время переключения между режимами SRT что-то пошло не по плану, и в системе остались включены правила файрвола одновременно для авто и ручного режима.
+
+**Диагностика:**
+
+1. Через меню поиска Windows найдите **PowerShell** и запустите его **от имени администратора**
+2. Выполните по очереди:
+
+```powershell
+Get-NetFirewallRule -DisplayName 'CS2_SRT_Block*' | Select DisplayName, Enabled, Direction | Format-Table
+```
+
+```powershell
+Get-NetFirewallRule -DisplayName 'CS2_SRT_Auto*' | Select DisplayName, Enabled, Direction | Format-Table
+```
+
+Если обе команды выводят правила — необходимо их удалить.
+
+**Решение:**
+
+1. Откройте **SRT** в панели, перейдите в режим **Manual** и убедитесь, что все серверы включены (сбрасываем всё по умолчанию)
+2. В **PowerShell (от имени администратора)** выполните по очереди:
+
+```powershell
+Get-NetFirewallRule -DisplayName 'CS2_SRT_Block*' | Remove-NetFirewallRule -Confirm:$false
+```
+
+```powershell
+Get-NetFirewallRule -DisplayName 'CS2_SRT_Auto*' | Remove-NetFirewallRule -Confirm:$false
+```
+
+После этого поиск матча должен заработать.
+
 {% hint style="info" %}
 Если проблема сохраняется после выполнения всех шагов — обращайтесь в саппорт через Telegram.
 {% endhint %}
