@@ -108,8 +108,8 @@ Cron-выражение состоит из 5 полей:
 
 ### Пример использования
 
-Цепочка: сначала фарм, затем продажа:
-* **Workflow A**: Daily Schedule → Account Context → Start Farm
+Цепочка: сначала покупка пропусков и Armory, затем продажа:
+* **Workflow A**: Daily Schedule → Account Context → Buy Passes → Activate Armory Pass → Armory
 * **Workflow B**: После Workflow (Workflow A) → Account Context → Sell Inventory → Notification
 * Условие запуска: `Только при успехе`
 * Задержка: `30 секунд`

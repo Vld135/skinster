@@ -6,14 +6,14 @@
 
 ---
 
-## Пример 1: Ежедневный фарм с уведомлением
+## Пример 1: Ежедневное открытие Armory с уведомлением
 
-Простой workflow для ежедневного фарма Armory звёзд с уведомлением в Telegram по завершении.
+Простой workflow для ежедневного открытия коллекций Armory за звёзды с уведомлением в Telegram по завершении.
 
 ### Цепочка нод
 
 ```
-Daily Schedule → Account Context → Start Farm → Telegram уведомление
+Daily Schedule → Account Context → Armory → Telegram уведомление
 ```
 
 ### Настройки
@@ -26,13 +26,11 @@ Daily Schedule → Account Context → Start Farm → Telegram уведомле�
 
 **Account Context:**
 * Источник: `Папка`
-* Папка: выберите папку с аккаунтами для фарма
+* Папка: выберите папку с аккаунтами
 
-**Start Farm:**
-* Режим выполнения: `Фоновый`
-* Тип фарма: `Armory (звёзды)`
-* Фармить до % звёзд: `100`
-* Дождаться окончания: `Да`
+**Armory:**
+* Коллекция: выберите нужную коллекцию
+* Количество: `Все доступные`
 * Human-like задержки: `Да`
 
 **Telegram уведомление:**
@@ -41,16 +39,16 @@ Daily Schedule → Account Context → Start Farm → Telegram уведомле�
 
 ---
 
-## Пример 2: Фарм Armory + покупка пропусков + продажа
+## Пример 2: Armory + покупка пропусков + продажа
 
-Полный цикл: проверка пропусков, покупка при необходимости, активация, фарм и продажа полученных предметов.
+Полный цикл: проверка пропусков, покупка при необходимости, активация, открытие Armory и продажа полученных предметов.
 
 ### Цепочка нод
 
 ```
 Daily Schedule → Account Context → Has Pass?
-  ├─ yes → Start Farm → Sell Inventory → Telegram уведомление
-  └─ no  → Buy Passes → Activate Armory Pass → Start Farm → Sell Inventory → Telegram уведомление
+  ├─ yes → Armory → Sell Inventory → Telegram уведомление
+  └─ no  → Buy Passes → Activate Armory Pass → Armory → Sell Inventory → Telegram уведомление
 ```
 
 ### Настройки
@@ -72,9 +70,9 @@ Daily Schedule → Account Context → Has Pass?
 **Activate Armory Pass:**
 * Пропускать если 5 активных: `Да`
 
-**Start Farm:**
-* Тип фарма: `Armory (звёзды)`
-* Дождаться окончания: `Да`
+**Armory:**
+* Коллекция: выберите нужную коллекцию
+* Количество: `Все доступные`
 
 **Sell Inventory:**
 * Типы предметов: `Кейсы`, `Скины`, `Стикеры`
@@ -87,15 +85,15 @@ Daily Schedule → Account Context → Has Pass?
 
 Два workflow, связанных через триггер "После Workflow". Первый фармит, второй продаёт и отправляет предметы на главный аккаунт.
 
-### Workflow A: Фарм
+### Workflow A: Покупка и Armory
 
 ```
-Daily Schedule → Account Context → Start Farm
+Daily Schedule → Account Context → Buy Passes → Activate Armory Pass → Armory
 ```
 
 * Время запуска: `22:00`
-* Тип фарма: `Weekly Drop`
-* Авто-сбор дропа: `Да`
+* Buy Passes: `Докупить до 5 шт`
+* Armory: коллекция по выбору, количество `Все доступные`
 
 ### Workflow B: Продажа и отправка
 

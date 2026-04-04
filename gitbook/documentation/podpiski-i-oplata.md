@@ -98,7 +98,6 @@ Trial предоставляет доступ ко всем функциям Aut
 * Steam Guard
 * Передвижение предметов (Items Moving)
 * Магазин в игре (In Game Shop)
-* Торговая площадка Steam (Steam Market)
 * Массовая продажа (Steam Market Multi-sell)
 * Арсенал (Armory)
 * Обмен предложениями (Trade Offers)
