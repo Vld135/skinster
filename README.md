@@ -9,7 +9,7 @@
 *Добро пожаловать в увлекательный мир фарма*
 
 ![Windows](https://img.shields.io/badge/platform-Windows-blue?style=flat-square)
-![Version](https://img.shields.io/badge/version-1.4.0-green?style=flat-square)
+![Version](https://img.shields.io/badge/version-1.11.0-green?style=flat-square)
 [![Telegram](https://img.shields.io/badge/Telegram-Channel-blue?style=flat-square&logo=telegram)](https://t.me/Skinster_news)
 
 </div>
