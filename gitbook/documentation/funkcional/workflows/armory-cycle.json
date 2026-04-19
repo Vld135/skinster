@@ -1,0 +1,604 @@
+{
+  "name": "цикл new armory",
+  "description": "",
+  "nodes": [
+    {
+      "id": "node_1775826427825",
+      "nodeType": "schedule.manual",
+      "label": "Manual Start",
+      "position": {
+        "x": 330,
+        "y": -60
+      },
+      "data": {
+        "nodeType": "schedule.manual",
+        "label": "Manual Start",
+        "outputs": [
+          "trigger"
+        ],
+        "inputs": [],
+        "properties": {}
+      }
+    },
+    {
+      "id": "node_1775826440121",
+      "nodeType": "context.accountContext",
+      "label": "Account Context",
+      "position": {
+        "x": 330,
+        "y": 75
+      },
+      "data": {
+        "nodeType": "context.accountContext",
+        "label": "Account Context",
+        "outputs": [
+          "success",
+          "empty"
+        ],
+        "inputs": [
+          "input"
+        ],
+        "properties": {
+          "sourceType": "folder",
+          "selectedAccounts": [],
+          "folderId": 4
+        }
+      }
+    },
+    {
+      "id": "node_1775826456446",
+      "nodeType": "action.sellInventory",
+      "label": "Sell Inventory",
+      "position": {
+        "x": 300,
+        "y": 300
+      },
+      "data": {
+        "nodeType": "action.sellInventory",
+        "label": "Sell Inventory",
+        "outputs": [
+          "success",
+          "failure"
+        ],
+        "inputs": [
+          "input"
+        ],
+        "properties": {
+          "accountFilter": {
+            "type": "all"
+          },
+          "itemFilterMode": "all",
+          "specificItems": [],
+          "itemLimits": {},
+          "itemTypes": [],
+          "typeLimits": {},
+          "usePriceFilter": false,
+          "minItemValue": 0,
+          "maxItemValue": 999999,
+          "allowNoPriceItems": false,
+          "priceStrategy": "optimal",
+          "undercutPercent": 1,
+          "minSalePriceUSD": 0,
+          "typeMinPrices": {},
+          "itemMinPrices": {},
+          "autoConfirm": true,
+          "delayBetweenGroups": 1000
+        }
+      }
+    },
+    {
+      "id": "node_1775826487920",
+      "nodeType": "condition.hasPass",
+      "label": "Has Pass?",
+      "position": {
+        "x": 270,
+        "y": 660
+      },
+      "data": {
+        "nodeType": "condition.hasPass",
+        "label": "Has Pass?",
+        "outputs": [
+          "yes",
+          "no"
+        ],
+        "inputs": [
+          "input"
+        ],
+        "properties": {
+          "accountFilter": {
+            "type": "all"
+          },
+          "minPassCount": 1,
+          "condition": "any",
+          "percentageThreshold": 50
+        }
+      }
+    },
+    {
+      "id": "node_1775826511007",
+      "nodeType": "action.buyPasses",
+      "label": "Buy Passes",
+      "position": {
+        "x": 345,
+        "y": 840
+      },
+      "data": {
+        "nodeType": "action.buyPasses",
+        "label": "Buy Passes",
+        "outputs": [
+          "success",
+          "failure"
+        ],
+        "inputs": [
+          "input"
+        ],
+        "properties": {
+          "accountFilter": {
+            "type": "all"
+          },
+          "purchaseMode": "fill_to_5",
+          "maxPurchases": 10
+        }
+      }
+    },
+    {
+      "id": "node_1775826523022",
+      "nodeType": "action.activateArmoryPass",
+      "label": "Activate Armory Pass",
+      "position": {
+        "x": 330,
+        "y": 1020
+      },
+      "data": {
+        "nodeType": "action.activateArmoryPass",
+        "label": "Activate Armory Pass",
+        "outputs": [
+          "success",
+          "failure"
+        ],
+        "inputs": [
+          "input"
+        ],
+        "properties": {
+          "accountFilter": {
+            "type": "all"
+          },
+          "skipIfActive": true,
+          "humanLikeDelays": true
+        }
+      }
+    },
+    {
+      "id": "node_1775826539852",
+      "nodeType": "action.armory",
+      "label": "Armory",
+      "position": {
+        "x": 180,
+        "y": 1200
+      },
+      "data": {
+        "nodeType": "action.armory",
+        "label": "Armory",
+        "outputs": [
+          "success",
+          "failure",
+          "insufficient_stars"
+        ],
+        "inputs": [
+          "input"
+        ],
+        "properties": {
+          "accountFilter": {
+            "type": "all"
+          },
+          "openCount": "all",
+          "customCount": 1,
+          "maxStarsPercent": 100,
+          "humanLikeDelays": true,
+          "collection": 1025083006
+        }
+      }
+    },
+    {
+      "id": "node_1775826587672",
+      "nodeType": "action.workflowSummary",
+      "label": "Summary Report",
+      "position": {
+        "x": 210,
+        "y": 1425
+      },
+      "data": {
+        "nodeType": "action.workflowSummary",
+        "label": "Summary Report",
+        "outputs": [
+          "output"
+        ],
+        "inputs": [
+          "input"
+        ],
+        "properties": {
+          "sections": [
+            "balance",
+            "sell",
+            "send",
+            "trades",
+            "storage",
+            "passes",
+            "farm",
+            "armory",
+            "buyOrders"
+          ]
+        }
+      }
+    },
+    {
+      "id": "node_1775826603678",
+      "nodeType": "action.startFarm",
+      "label": "Start Farm",
+      "position": {
+        "x": 180,
+        "y": 1785
+      },
+      "data": {
+        "nodeType": "action.startFarm",
+        "label": "Start Farm",
+        "outputs": [
+          "success",
+          "failure"
+        ],
+        "inputs": [
+          "input"
+        ],
+        "properties": {
+          "executionMode": "background",
+          "farmType": "armory",
+          "folderSelector": 4,
+          "accountsOrder": "folder",
+          "farmUntilPercent": 100,
+          "waitForCompletion": true,
+          "humanLikeDelays": true
+        }
+      }
+    },
+    {
+      "id": "node_1775826635635",
+      "nodeType": "action.notification",
+      "label": "Telegram Notification",
+      "position": {
+        "x": 270,
+        "y": 1980
+      },
+      "data": {
+        "nodeType": "action.notification",
+        "label": "Telegram Notification",
+        "outputs": [
+          "output"
+        ],
+        "inputs": [
+          "input"
+        ],
+        "properties": {
+          "messageType": "custom",
+          "messageTemplate": "workflow_complete",
+          "customMessage": "фарм упал: {{workflowName}}"
+        }
+      }
+    },
+    {
+      "id": "node_1775826800847",
+      "nodeType": "condition.hasPass",
+      "label": "Has Pass?",
+      "position": {
+        "x": 300,
+        "y": 1530
+      },
+      "data": {
+        "nodeType": "condition.hasPass",
+        "label": "Has Pass?",
+        "outputs": [
+          "yes",
+          "no"
+        ],
+        "inputs": [
+          "input"
+        ],
+        "properties": {
+          "accountFilter": {
+            "type": "all"
+          },
+          "minPassCount": 1,
+          "condition": "any",
+          "percentageThreshold": 50
+        }
+      }
+    },
+    {
+      "id": "node_1775826815732",
+      "nodeType": "action.notification",
+      "label": "Telegram Notification",
+      "position": {
+        "x": 435,
+        "y": 1755
+      },
+      "data": {
+        "nodeType": "action.notification",
+        "label": "Telegram Notification",
+        "outputs": [
+          "output"
+        ],
+        "inputs": [
+          "input"
+        ],
+        "properties": {
+          "messageType": "custom",
+          "messageTemplate": "workflow_complete",
+          "customMessage": "Нечего фармить\nВозможно не хватило баланса на новые пропуски"
+        }
+      }
+    },
+    {
+      "id": "node_1776112399033",
+      "nodeType": "control.delay",
+      "label": "Delay",
+      "position": {
+        "x": 270,
+        "y": 495
+      },
+      "data": {
+        "nodeType": "control.delay",
+        "label": "Delay",
+        "outputs": [
+          "output"
+        ],
+        "inputs": [
+          "input"
+        ],
+        "properties": {
+          "delayType": "fixed",
+          "duration": 180,
+          "minDuration": 10,
+          "maxDuration": 60
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1775826427825",
+      "sourceHandle": "trigger",
+      "target": "node_1775826440121",
+      "id": "xy-edge__node_1775826427825trigger-node_1775826440121",
+      "selected": false
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1775826440121",
+      "sourceHandle": "success",
+      "target": "node_1775826456446",
+      "id": "xy-edge__node_1775826440121success-node_1775826456446"
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1775826487920",
+      "sourceHandle": "no",
+      "target": "node_1775826511007",
+      "id": "xy-edge__node_1775826487920no-node_1775826511007"
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1775826511007",
+      "sourceHandle": "success",
+      "target": "node_1775826523022",
+      "id": "xy-edge__node_1775826511007success-node_1775826523022"
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1775826487920",
+      "sourceHandle": "yes",
+      "target": "node_1775826539852",
+      "id": "xy-edge__node_1775826487920yes-node_1775826539852"
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1775826523022",
+      "sourceHandle": "success",
+      "target": "node_1775826539852",
+      "id": "xy-edge__node_1775826523022success-node_1775826539852"
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1775826539852",
+      "sourceHandle": "success",
+      "target": "node_1775826587672",
+      "id": "xy-edge__node_1775826539852success-node_1775826587672"
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1775826539852",
+      "sourceHandle": "failure",
+      "target": "node_1775826587672",
+      "id": "xy-edge__node_1775826539852failure-node_1775826587672"
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1775826539852",
+      "sourceHandle": "insufficient_stars",
+      "target": "node_1775826587672",
+      "id": "xy-edge__node_1775826539852insufficient_stars-node_1775826587672"
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1775826603678",
+      "sourceHandle": "failure",
+      "target": "node_1775826635635",
+      "id": "xy-edge__node_1775826603678failure-node_1775826635635"
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [
+          {
+            "x": 15,
+            "y": 1605
+          },
+          {
+            "x": 120,
+            "y": 600
+          }
+        ],
+        "isBackEdge": true
+      },
+      "source": "node_1775826603678",
+      "sourceHandle": "success",
+      "target": "node_1775826456446",
+      "id": "xy-edge__node_1775826603678success-node_1775826456446",
+      "selected": false
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1775826511007",
+      "sourceHandle": "failure",
+      "target": "node_1775826523022",
+      "id": "xy-edge__node_1775826511007failure-node_1775826523022"
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1775826523022",
+      "sourceHandle": "failure",
+      "target": "node_1775826539852",
+      "id": "xy-edge__node_1775826523022failure-node_1775826539852"
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1775826587672",
+      "sourceHandle": "output",
+      "target": "node_1775826800847",
+      "id": "xy-edge__node_1775826587672output-node_1775826800847"
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1775826800847",
+      "sourceHandle": "yes",
+      "target": "node_1775826603678",
+      "id": "xy-edge__node_1775826800847yes-node_1775826603678"
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1775826800847",
+      "sourceHandle": "no",
+      "target": "node_1775826815732",
+      "id": "xy-edge__node_1775826800847no-node_1775826815732"
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1775826456446",
+      "sourceHandle": "success",
+      "target": "node_1776112399033",
+      "id": "xy-edge__node_1775826456446success-node_1776112399033"
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1776112399033",
+      "sourceHandle": "output",
+      "target": "node_1775826487920",
+      "id": "xy-edge__node_1776112399033output-node_1775826487920"
+    }
+  ],
+  "enabled": false,
+  "schedule": null,
+  "validation": {
+    "valid": false,
+    "hasWarnings": true,
+    "lastValidated": "2026-04-18T13:50:51.071Z"
+  },
+  "id": "wf_1775826872864_jcs8qi3mu",
+  "updatedAt": "2026-04-18T13:50:51.072Z",
+  "createdAt": "2026-04-10T13:14:32.864Z"
+}
