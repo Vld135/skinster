@@ -1,0 +1,205 @@
+{
+  "name": "Buy keys",
+  "description": "",
+  "nodes": [
+    {
+      "id": "node_1776606648121",
+      "nodeType": "schedule.manual",
+      "label": "Ручной запуск",
+      "position": {
+        "x": 270,
+        "y": 225
+      },
+      "data": {
+        "nodeType": "schedule.manual",
+        "label": "Ручной запуск",
+        "outputs": [
+          "trigger"
+        ],
+        "inputs": [],
+        "properties": {}
+      }
+    },
+    {
+      "id": "node_1776606649062",
+      "nodeType": "context.accountContext",
+      "label": "Account Context",
+      "position": {
+        "x": 270,
+        "y": 345
+      },
+      "data": {
+        "nodeType": "context.accountContext",
+        "label": "Account Context",
+        "outputs": [
+          "success",
+          "empty"
+        ],
+        "inputs": [
+          "input"
+        ],
+        "properties": {
+          "sourceType": "all",
+          "selectedAccounts": []
+        }
+      }
+    },
+    {
+      "id": "node_1776606666900",
+      "nodeType": "action.buyOnMarket",
+      "label": "Покупка на маркете",
+      "position": {
+        "x": 240,
+        "y": 600
+      },
+      "data": {
+        "nodeType": "action.buyOnMarket",
+        "label": "Покупка на маркете",
+        "outputs": [
+          "success",
+          "failure"
+        ],
+        "inputs": [
+          "input"
+        ],
+        "properties": {
+          "accountFilter": {
+            "type": "all"
+          },
+          "items": [
+            {
+              "market_hash_name": "Mann Co. Supply Crate Key",
+              "appid": 440,
+              "appName": "Team Fortress 2",
+              "maxPricePerUnit": 2.86,
+              "quantity": 0,
+              "imgUrl": "https://community.akamai.steamstatic.com/economy/image/fWFc82js0fmoRAP-qOIPu5THSWqfSmTELLqcUywGkijVjZULUrsm1j-9xgEAaR4uURrwvz0N252yVaDVWrRTno9m4ccG2GNqxlQoZrC2aG9hcVGUWflbX_drrVu5UGki5sAij6tOtQ/62fx62f"
+            }
+          ],
+          "spendMode": "all",
+          "balancePercent": 90,
+          "fixedAmount": 1,
+          "maxItemCount": 10,
+          "delayBetweenPurchases": 3000,
+          "delayBetweenAccounts": 5000
+        }
+      }
+    },
+    {
+      "id": "node_1776606670964",
+      "nodeType": "action.workflowSummary",
+      "label": "Отчёт",
+      "position": {
+        "x": 210,
+        "y": 855
+      },
+      "data": {
+        "nodeType": "action.workflowSummary",
+        "label": "Отчёт",
+        "outputs": [
+          "output"
+        ],
+        "inputs": [
+          "input"
+        ],
+        "properties": {
+          "sections": [
+            "balance",
+            "sell",
+            "send",
+            "trades",
+            "storage",
+            "passes",
+            "farm",
+            "armory",
+            "buyOrders"
+          ]
+        }
+      }
+    },
+    {
+      "id": "node_1776606675373",
+      "nodeType": "action.notification",
+      "label": "Telegram уведомление",
+      "position": {
+        "x": 510,
+        "y": 840
+      },
+      "data": {
+        "nodeType": "action.notification",
+        "label": "Telegram уведомление",
+        "outputs": [
+          "output"
+        ],
+        "inputs": [
+          "input"
+        ],
+        "properties": {
+          "messageType": "custom",
+          "messageTemplate": "workflow_complete",
+          "customMessage": "Не удалось закупить"
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1776606648121",
+      "sourceHandle": "trigger",
+      "target": "node_1776606649062",
+      "id": "xy-edge__node_1776606648121trigger-node_1776606649062"
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1776606649062",
+      "sourceHandle": "success",
+      "target": "node_1776606666900",
+      "id": "xy-edge__node_1776606649062success-node_1776606666900"
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1776606666900",
+      "sourceHandle": "success",
+      "target": "node_1776606670964",
+      "id": "xy-edge__node_1776606666900success-node_1776606670964"
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1776606666900",
+      "sourceHandle": "failure",
+      "target": "node_1776606675373",
+      "id": "xy-edge__node_1776606666900failure-node_1776606675373"
+    }
+  ],
+  "enabled": false,
+  "schedule": null,
+  "validation": {
+    "valid": false,
+    "hasWarnings": false,
+    "lastValidated": "2026-04-19T13:51:57.139Z"
+  },
+  "id": "wf_1776606646692_ayxkrlf35",
+  "updatedAt": "2026-04-19T13:51:57.140Z",
+  "createdAt": "2026-04-19T13:50:46.692Z"
+}
