@@ -1,0 +1,206 @@
+{
+  "name": "Batch sell",
+  "description": "",
+  "nodes": [
+    {
+      "id": "node_1776616049073",
+      "nodeType": "schedule.manual",
+      "label": "Ручной запуск",
+      "position": {
+        "x": 375,
+        "y": 165
+      },
+      "data": {
+        "nodeType": "schedule.manual",
+        "label": "Ручной запуск",
+        "outputs": [
+          "trigger"
+        ],
+        "inputs": [],
+        "properties": {}
+      }
+    },
+    {
+      "id": "node_1776616049764",
+      "nodeType": "context.accountContext",
+      "label": "Account Context",
+      "position": {
+        "x": 360,
+        "y": 315
+      },
+      "data": {
+        "nodeType": "context.accountContext",
+        "label": "Account Context",
+        "outputs": [
+          "success",
+          "empty"
+        ],
+        "inputs": [
+          "input"
+        ],
+        "properties": {
+          "sourceType": "all",
+          "selectedAccounts": [],
+          "folderId": ""
+        }
+      }
+    },
+    {
+      "id": "node_1776616065285",
+      "nodeType": "action.sellInventory",
+      "label": "Sell Inventory",
+      "position": {
+        "x": 360,
+        "y": 570
+      },
+      "data": {
+        "nodeType": "action.sellInventory",
+        "label": "Sell Inventory",
+        "outputs": [
+          "success",
+          "failure"
+        ],
+        "inputs": [
+          "input"
+        ],
+        "properties": {
+          "accountFilter": {
+            "type": "all"
+          },
+          "itemFilterMode": "all",
+          "specificItems": [],
+          "itemLimits": {},
+          "itemTypes": [],
+          "typeLimits": {},
+          "usePriceFilter": false,
+          "minItemValue": 0,
+          "maxItemValue": 999999,
+          "allowNoPriceItems": false,
+          "priceStrategy": "optimal",
+          "undercutPercent": 1,
+          "minSalePriceUSD": 0,
+          "typeMinPrices": {},
+          "itemMinPrices": {},
+          "autoConfirm": true,
+          "delayBetweenGroups": 1000
+        }
+      }
+    },
+    {
+      "id": "node_1776616090095",
+      "nodeType": "action.workflowSummary",
+      "label": "Отчёт",
+      "position": {
+        "x": 315,
+        "y": 795
+      },
+      "data": {
+        "nodeType": "action.workflowSummary",
+        "label": "Отчёт",
+        "outputs": [
+          "output"
+        ],
+        "inputs": [
+          "input"
+        ],
+        "properties": {
+          "sections": [
+            "balance",
+            "sell",
+            "send",
+            "trades",
+            "storage",
+            "passes",
+            "farm",
+            "armory",
+            "buyOrders"
+          ]
+        }
+      }
+    },
+    {
+      "id": "node_1776616095585",
+      "nodeType": "action.notification",
+      "label": "Telegram уведомление",
+      "position": {
+        "x": 525,
+        "y": 795
+      },
+      "data": {
+        "nodeType": "action.notification",
+        "label": "Telegram уведомление",
+        "outputs": [
+          "output"
+        ],
+        "inputs": [
+          "input"
+        ],
+        "properties": {
+          "messageType": "custom",
+          "messageTemplate": "workflow_complete",
+          "customMessage": "Произошла ошибка во время выставления на продажу"
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1776616049073",
+      "sourceHandle": "trigger",
+      "target": "node_1776616049764",
+      "id": "xy-edge__node_1776616049073trigger-node_1776616049764"
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1776616049764",
+      "sourceHandle": "success",
+      "target": "node_1776616065285",
+      "id": "xy-edge__node_1776616049764success-node_1776616065285"
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1776616065285",
+      "sourceHandle": "success",
+      "target": "node_1776616090095",
+      "id": "xy-edge__node_1776616065285success-node_1776616090095"
+    },
+    {
+      "type": "editable",
+      "animated": true,
+      "data": {
+        "waypoints": [],
+        "isBackEdge": false
+      },
+      "source": "node_1776616065285",
+      "sourceHandle": "failure",
+      "target": "node_1776616095585",
+      "id": "xy-edge__node_1776616065285failure-node_1776616095585"
+    }
+  ],
+  "enabled": false,
+  "schedule": null,
+  "validation": {
+    "valid": false,
+    "hasWarnings": false,
+    "lastValidated": "2026-04-19T16:52:50.715Z"
+  },
+  "id": "wf_1776616046684_p3bbla2g9",
+  "updatedAt": "2026-04-19T16:52:50.715Z",
+  "createdAt": "2026-04-19T16:27:26.685Z"
+}
