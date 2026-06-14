@@ -27,6 +27,7 @@
   * [Условия и контроль](funkcional/workflows/usloviya-i-kontrol.md)
   * [Примеры Workflows](funkcional/workflows/primery-workflowov.md)
 * [Steam Guard](funkcional/steam-guard.md)
+* [Warmup](funkcional/warmup.md)
 
 ## Подписки и оплата
 
